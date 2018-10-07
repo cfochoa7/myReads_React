@@ -1,8 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Book} from './book.js';
+import {Shelf} from './shelf.js';
 
 export class Main extends React.Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    books:{}
+  }
+}
+
 
 
   render() {
@@ -18,10 +25,14 @@ export class Main extends React.Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                <li>
-                  <Book />
-                  <Book />
-                </li>
+
+                <Shelf
+                book = {this.props.book}
+                moveShelf={this.props.moveShelf}
+
+                current = 'currentlyReading'
+                />
+
                 </ol>
               </div>
             </div>
@@ -30,9 +41,15 @@ export class Main extends React.Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                <li>
-                  <Book />
-                </li>
+
+                <Shelf
+                book = {this.props.book}
+                moveShelf={this.props.moveShelf}
+
+                current = 'wantToRead'
+                />
+
+
                 </ol>
               </div>
             </div>
@@ -41,11 +58,15 @@ export class Main extends React.Component {
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                <li>
-                  <Book />
-                  <Book />
-                  <Book />
-                </li>
+
+                <Shelf
+                book = {this.props.book}
+                moveShelf={this.props.moveShelf}
+
+                current = 'read'
+                />
+
+
                 </ol>
               </div>
             </div>
