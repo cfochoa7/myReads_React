@@ -46,6 +46,7 @@ The key functions on order to id everything in the 'listedBooks' array.
 'moveShelf' is used to look into the array of books and display the books to the user.
 '{listedBooks}' is injected to display the book to the user'. */
     let bookList;
+    if (this.state.listedBooks) {
      bookList = this.state.listedBooks
     .map(listedBooks => (
       <li
@@ -56,6 +57,7 @@ The key functions on order to id everything in the 'listedBooks' array.
         />
       </li>
     ))
+  }
 
     return (
       <div className="search-books">
