@@ -38,13 +38,12 @@ export class Main extends React.Component {
     const title = this.props
 
 /*Each variable is defined by the sections of the page.
-A tenerary operator is used access the state.
 The filter method filters the array to display the appropriate amount of book in the section.
 A map method is also used to display a seperate array books in each section.
 The 'moveShelf' allows the books to shift from each section.
 The 'current' is used to display the dropdown section based on where the book is located. */
   let currentlyReading;
-    bookFinder ? currentlyReading = bookFinder
+    currentlyReading = bookFinder
     .filter(book => book.shelf === title.current)
     .map((book =>
     <li key={book.id}>
@@ -54,10 +53,10 @@ The 'current' is used to display the dropdown section based on where the book is
       current={title.current}
        />
     </li>
-  )) : null
+  ))
 
   let want;
-    bookFinder ? want = bookFinder
+    want = bookFinder
     .filter(book => book.shelf === title.want)
     .map((book =>
     <li key={book.id}>
@@ -67,10 +66,10 @@ The 'current' is used to display the dropdown section based on where the book is
       current={title.want}
        />
     </li>
-  )) : null
+  ))
 
   let read;
-    bookFinder ? read = bookFinder
+    read = bookFinder
     .filter(book => book.shelf === title.read)
     .map((book =>
       <li key={book.id}>
@@ -80,7 +79,7 @@ The 'current' is used to display the dropdown section based on where the book is
       current={title.read}
         />
      </li>
-   )) : null
+   )) 
 
 
     return(
