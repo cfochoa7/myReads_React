@@ -17,11 +17,11 @@ export class Search extends React.Component {
     BooksAPI.update(book, shelf);
   }
 
-/*Uses the tenerary operator to find that if the seach bar is empty then the listedBooks array reply in kind.
+/* Find if the seach bar is empty then the listedBooks array reply in kind.
 As well if 'getBooks' is called then the BooksApp will search and then display the requested books in the 'listedBooks' array.
 An error message will display if no book is found. Otherwise the 'listedBooks' array will continue to display the requested items.*/
   updateSearch = (search) => {
-    search === '' ? this.setState({ listedBooks: [] }): null
+    search === '' ? this.setState({ listedBooks: [] }):
     this.getBooks(search ? BooksAPI.search(search).then((listedBooks) => {
       listedBooks.error ? this.setState(alert('No Books Listed, please restart search.')) : this.setState({listedBooks})
     })
@@ -41,12 +41,12 @@ The variable will be injected in the '<input />'.*/
     updateSearch = (e) => this.updateSearch(e.target.value)
 
 /*Uses the variable 'bookList' to represent the state and 'listedBooks'.
-With the .map() a tenerary operator is used with the '<li />' & '<Book />' from book.js.
+The .map() is used with the '<li />' & '<Book />' from book.js.
 The key functions on order to id everything in the 'listedBooks' array.
 'moveShelf' is used to look into the array of books and display the books to the user.
 '{listedBooks}' is injected to display the book to the user'. */
     let bookList;
-    this.state.listedBooks ? bookList = this.state.listedBooks
+     bookList = this.state.listedBooks
     .map(listedBooks => (
       <li
         key = {listedBooks.id}>
@@ -55,7 +55,7 @@ The key functions on order to id everything in the 'listedBooks' array.
         moveShelf={this.moveShelf}
         />
       </li>
-    )): null
+    ))
 
     return (
       <div className="search-books">
