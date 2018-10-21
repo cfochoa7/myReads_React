@@ -17,7 +17,9 @@ main.js. It will use the thumbnail of the selected book and display it to the us
       backgroundImage: `url("${connect.book.imageLinks ? connect.book.imageLinks.thumbnail : null}")`
     }
 
-/*The 'change' variable gives the ability to move the selected books to different sections of the main page.*/
+/*The 'change' variable gives the ability to move the selected books to different sections of the main page.
+ https://www.youtube.com/watch?v=i6L2jLHV9j8&t=4982s
+*/
     let change;
       change = (e) => connect.moveShelf(
        connect.book, e.target.value
