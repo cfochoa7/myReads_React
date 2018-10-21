@@ -39,7 +39,7 @@ export class Main extends React.Component {
     const title = this.props
 
 /*Each variable is defined by the sections of the page.
-A tenerary operator is used access the state.
+An If method is used access the state.
 The filter method filters the array to display the appropriate amount of book in the section.
 A map method is also used to display a seperate array books in each section.
 The 'moveShelf' allows the books to shift from each section.
