@@ -4,7 +4,8 @@ In this project, the application demonstrates how a book can be searched in a da
 
 ## Instructions
 
-* Make sure the proper React modules are installed before cloning the project
+* Use `npm install` in order to install the proper dependecies (Be careful not to install dependecies globally)
+* Make sure that the dependecies are located in the proper section with the package.json file
 * Git clone the file 
 * Start the development server with `npm start`
 * Access the search page by clicking the green button in the lower left-hand corner
