@@ -27,10 +27,11 @@ export class Main extends React.Component {
 
 /*The moveShelf allows the book to move from different sections in the main page.*/
   moveShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
+    BooksAPI.update(book, shelf).then(
     BooksAPI.getAll().then((books) => {
       this.getBooks()
     })
+  )
   }
 
   render() {
@@ -38,7 +39,7 @@ export class Main extends React.Component {
     const title = this.props
 
 /*Each variable is defined by the sections of the page.
-An If method is used access the state.
+A tenerary operator is used access the state.
 The filter method filters the array to display the appropriate amount of book in the section.
 A map method is also used to display a seperate array books in each section.
 The 'moveShelf' allows the books to shift from each section.
@@ -133,7 +134,7 @@ The 'current' is used to display the dropdown section based on where the book is
           </div>
         </div>
         <div className="open-search">
-          <Link to="/add" className='/add-book'>Add a book</Link>
+          <Link to="/search" className='/add-book'>Add a book</Link>
         </div>
       </div>
 

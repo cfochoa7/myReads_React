@@ -17,13 +17,13 @@ export class Search extends React.Component {
     BooksAPI.update(book, shelf);
   }
 
-/* Find if the seach bar is empty then the listedBooks array reply in kind.
+/*  If the seach bar is empty then the listedBooks array reply in kind.
 As well if 'getBooks' is called then the BooksApp will search and then display the requested books in the 'listedBooks' array.
 An error message will display if no book is found. Otherwise the 'listedBooks' array will continue to display the requested items.*/
   updateSearch = (search) => {
     search === '' ? this.setState({ listedBooks: [] }):
     this.getBooks(search ? BooksAPI.search(search).then((listedBooks) => {
-      listedBooks.error ? this.setState(alert('No Books Listed, please restart search.')) : this.setState({listedBooks})
+      listedBooks.error ? this.setState({ listedBooks: [] }) : this.setState({listedBooks})
     })
        : null
     );
@@ -36,9 +36,7 @@ An error message will display if no book is found. Otherwise the 'listedBooks' a
   render() {
 
 /*The variable 'updateSearch' is used to target the value of the book in the 'updateSearch' function.
-The variable will be injected in the '<input />'.
- https://www.youtube.com/watch?v=i6L2jLHV9j8&t=4982s
- */
+The variable will be injected in the '<input />'.*/
     let updateSearch;
     updateSearch = (e) => this.updateSearch(e.target.value)
 
@@ -56,6 +54,7 @@ The key functions on order to id everything in the 'listedBooks' array.
       <Book
         book = {listedBooks}
         moveShelf={this.moveShelf}
+        current = {'none'}
         />
       </li>
     ))
