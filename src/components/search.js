@@ -36,7 +36,9 @@ An error message will display if no book is found. Otherwise the 'listedBooks' a
   render() {
 
 /*The variable 'updateSearch' is used to target the value of the book in the 'updateSearch' function.
-The variable will be injected in the '<input />'.*/
+The variable will be injected in the '<input />'
+ https://www.youtube.com/watch?v=i6L2jLHV9j8&t=4982s
+.*/
     let updateSearch;
     updateSearch = (e) => this.updateSearch(e.target.value)
 
